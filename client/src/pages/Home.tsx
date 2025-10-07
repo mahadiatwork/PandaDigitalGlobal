@@ -1,6 +1,7 @@
 import { HeroSection } from "@/components/HeroSection";
 import { StatsSection } from "@/components/StatsSection";
 import { ServicesSection } from "@/components/ServicesSection";
+import { ManagementSection } from "@/components/ManagementSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -13,6 +14,7 @@ export default function Home() {
       <HeroSection />
       <StatsSection />
       <ServicesSection />
+      <ManagementSection />
       <TestimonialsSection />
       
       <section className="py-20 bg-gradient-to-br from-primary/10 via-background to-destructive/10">
