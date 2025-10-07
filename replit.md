@@ -51,21 +51,21 @@ Preferred communication style: Simple, everyday language.
 
 ### Backend Architecture
 
-**Server Framework**: Hybrid Next.js/Express setup
-- Next.js handles primary routing and server-side rendering
-- Express server (`server/index.ts`) creates HTTP server for Next.js
-- Vite dev server integration for development hot-module replacement
-- Routes defined in `server/routes.ts` (currently minimal, extensible for API endpoints)
+**Server Framework**: Next.js 14 with custom bootstrap
+- Next.js handles all routing, server-side rendering, and API routes
+- Custom server bootstrap in `server/index.ts` using Next.js Node API
+- Runs on port 5000 for Replit compatibility
+- Development server with Fast Refresh for instant updates
 
 **Build Process**:
-- Development: tsx with Node.js for server, Vite for client with HMR
-- Production: Vite builds client to `dist/public`, esbuild bundles server to `dist/`
-- Separate build outputs maintain clean separation of concerns
+- Development: `npm run dev` runs tsx with server/index.ts which bootstraps Next.js
+- Production: `next build` creates optimized production build
+- Build output in `.next/` directory (excluded from git)
 
 **Server Configuration**:
 - Environment-based configuration (NODE_ENV for dev/production)
-- Custom Vite setup with path aliases (`@`, `@shared`, `@assets`)
-- Static file serving for built client assets
+- Next.js path aliases configured in tsconfig.json (`@/*` maps to root)
+- Static assets served from `/public` directory
 
 ### Data Storage Solutions
 
@@ -106,8 +106,9 @@ Preferred communication style: Simple, everyday language.
 - Configured client in `client/src/lib/queryClient.ts`
 
 **Routing**:
-- wouter for client-side routing (used in client-only mode)
-- Next.js App Router for server-side and hybrid routing
+- Next.js App Router for all routing (file-based routing in `app/` directory)
+- next/link for client-side navigation
+- next/navigation hooks (usePathname) for route awareness
 
 **Animation**:
 - Framer Motion for declarative animations
@@ -128,6 +129,17 @@ Preferred communication style: Simple, everyday language.
 - nanoid for generating unique IDs
 
 **Production Build**:
-- esbuild for server bundling
-- Vite for client bundling with React plugin
+- Next.js build system (webpack-based) for both server and client
+- Automatic code splitting and optimization
 - PostCSS with Tailwind and Autoprefixer
+
+## Recent Changes (October 2025)
+
+**Complete Next.js Conversion:**
+- Converted entire application from React/Vite/Express to Next.js 14 with App Router
+- All 10 components migrated with proper "use client" directives for interactive features
+- All 3 pages created in Next.js App Router structure
+- Replaced wouter routing with Next.js Link and navigation hooks
+- Images migrated to `/public/images/` directory
+- Custom server bootstrap in `server/index.ts` to work with existing workflow
+- Security: Removed .next build artifacts from git, added proper .gitignore entries
