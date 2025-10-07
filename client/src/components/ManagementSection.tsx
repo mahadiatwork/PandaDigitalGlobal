@@ -1,9 +1,9 @@
 import { Card } from "@/components/ui/card";
 import { Mail } from "lucide-react";
 import { motion } from "framer-motion";
-import ceoImage from "@assets/stock_images/professional_busines_fcd7264c.jpg";
-import mdImage from "@assets/stock_images/professional_busines_6c2bcfa6.jpg";
-import ctoImage from "@assets/stock_images/professional_busines_06e90d7b.jpg";
+import ceoImage from "@assets/stock_images/bangladeshi_business_d8cafd36.jpg";
+import mdImage from "@assets/stock_images/bangladeshi_man_busi_6c3a3f85.jpg";
+import ctoImage from "@assets/stock_images/bangladeshi_tech_exe_0deb7c9a.jpg";
 
 const management = [
   {
