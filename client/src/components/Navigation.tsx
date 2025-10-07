@@ -33,16 +33,17 @@ export function Navigation() {
 
           <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <Link key={item.path} href={item.path} data-testid={`link-${item.label.toLowerCase().replace(" ", "-")}`}>
-                <a
-                  className={`text-sm font-medium transition-colors hover:text-primary ${
-                    location === item.path
-                      ? "text-foreground"
-                      : "text-muted-foreground"
-                  }`}
-                >
-                  {item.label}
-                </a>
+              <Link 
+                key={item.path} 
+                href={item.path} 
+                data-testid={`link-${item.label.toLowerCase().replace(" ", "-")}`}
+                className={`text-sm font-medium transition-colors hover:text-primary ${
+                  location === item.path
+                    ? "text-foreground"
+                    : "text-muted-foreground"
+                }`}
+              >
+                {item.label}
               </Link>
             ))}
           </nav>
@@ -78,17 +79,17 @@ export function Navigation() {
           >
             <nav className="flex flex-col gap-4 p-4">
               {navItems.map((item) => (
-                <Link key={item.path} href={item.path}>
-                  <a
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={`text-sm font-medium transition-colors hover:text-primary ${
-                      location === item.path
-                        ? "text-foreground"
-                        : "text-muted-foreground"
-                    }`}
-                  >
-                    {item.label}
-                  </a>
+                <Link 
+                  key={item.path} 
+                  href={item.path}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`text-sm font-medium transition-colors hover:text-primary ${
+                    location === item.path
+                      ? "text-foreground"
+                      : "text-muted-foreground"
+                  }`}
+                >
+                  {item.label}
                 </Link>
               ))}
               <Link href="/contact">
